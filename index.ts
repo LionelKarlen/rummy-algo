@@ -34,4 +34,5 @@ while (!rummy.isGameOver) {
 		rummy.players[algo.playerIndex],
 		algo.putDown(() => putdown)
 	);
+	console.log(rummy.isGameOver);
 }
