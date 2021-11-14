@@ -1,0 +1,21 @@
+{
+  "name": "rummy-algo",
+  "version": "1.0.0",
+  "description": "Game theory algorithms for the popular card game Rummy",
+  "main": "index.js",
+  "author": "Lionel Karlen <lionel.karlen@protonmail.ch>",
+  "license": "MIT",
+  "dependencies": {
+    "rummy-lib": "^1.0.0",
+    "typescript": "^4.4.4"
+  },
+  "scripts": {
+	  "start": "ts-node ./index.ts",
+	  "lint": "prettier --write \"src/{*.ts,**/*.ts}\"",
+	  "debug": "ts-node ./src/debug.ts"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1",
+    "ts-node": "^10.4.0"
+  }
+}
