@@ -15,3 +15,5 @@ export function onlyDiscardPickup(playerIndex: number, rummy: Rummy) {
 		rummy.board.discard.cards[0]
 	);
 }
+
+export const pickups = [onlyStockPickup, onlyDiscardPickup];

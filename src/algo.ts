@@ -14,17 +14,15 @@ export class Algo {
 		this.playerIndex = playerIndex;
 	}
 
-	pickUp(
-		implement: (playerIndex: number, rummy: Rummy) => PickupMove
-	): PickupMove {
+	pickUp(implement: (playerIndex: number, rummy: Rummy) => PickupMove) {
 		return implement(this.playerIndex, this.game);
 	}
 
-	meld(implement: (playerIndex: number, rummy: Rummy) => MeldMove): MeldMove {
+	meld(implement: (playerIndex: number, rummy: Rummy) => MeldMove | null) {
 		return implement(this.playerIndex, this.game);
 	}
 
-	layOff(implement: (playerIndex: number, rummy: Rummy) => LayMove): LayMove {
+	layOff(implement: (playerIndex: number, rummy: Rummy) => LayMove | null) {
 		return implement(this.playerIndex, this.game);
 	}
 

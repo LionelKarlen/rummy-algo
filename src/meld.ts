@@ -6,3 +6,5 @@ export function minimumPossibleMeld(playerIndex: number, rummy: Rummy) {
 	//   return new MeldMove(rummy.players[playerIndex].hand,rummy.players[playerIndex].meldStack,new Book([]));
 	return null;
 }
+
+export const melds = [minimumPossibleMeld];

@@ -17,3 +17,5 @@ export function minimalPossibleLayoff(playerIndex: number, rummy: Rummy) {
 	}
 	return null;
 }
+
+export const layoffs = [minimalPossibleLayoff];

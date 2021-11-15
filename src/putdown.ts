@@ -7,3 +7,5 @@ export function oldestCard(playerIndex: number, rummy: Rummy) {
 		rummy.players[playerIndex].hand.cards[0]
 	);
 }
+
+export const putdowns = [oldestCard];
