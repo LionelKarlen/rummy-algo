@@ -12,4 +12,9 @@ export function oldestCard(playerIndex: number, rummy: Rummy) {
 	);
 }
 
+export function uselessCard(playerIndex: number, rummy: Rummy) {
+	if (rummy.players[playerIndex].hand.cards) {
+	}
+}
+
 export const putdowns = [oldestCard];

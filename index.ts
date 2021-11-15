@@ -8,6 +8,7 @@ import { putdowns } from "./src/putdown";
 import { Utils } from "./src/utils";
 import fs from "fs";
 
+const simulationRuns = 1;
 for (let f_1 = 0; f_1 < pickups.length; f_1++) {
 	for (let s_1 = 0; s_1 < melds.length; s_1++) {
 		for (let t_1 = 0; t_1 < layoffs.length; t_1++) {
@@ -25,7 +26,11 @@ for (let f_1 = 0; f_1 < pickups.length; f_1++) {
 									continue;
 								}
 								games.push(
-									runSimulation(algoNum_1, algoNum_2, 2)
+									runSimulation(
+										algoNum_1,
+										algoNum_2,
+										simulationRuns
+									)
 								);
 							}
 						}
