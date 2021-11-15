@@ -4,7 +4,11 @@ export function oldestCard(playerIndex: number, rummy: Rummy) {
 	return new PutdownMove(
 		rummy.players[playerIndex].hand,
 		rummy.board.discard,
-		rummy.players[playerIndex].hand.cards[0]
+		rummy.players[playerIndex].hand.cards[
+			rummy.players[playerIndex].hand.cards.findIndex(
+				(card, index) => card.isDiscard == false
+			)
+		]
 	);
 }
 
