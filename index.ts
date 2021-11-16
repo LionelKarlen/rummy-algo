@@ -7,15 +7,17 @@ import { layoffs } from "./src/layoff";
 import { putdowns } from "./src/putdown";
 import { Utils } from "./src/utils";
 import fs from "fs";
+import { SimulationSummary, GameSummary } from "./src/summary";
 
-const simulationRuns = 1;
+const simulationRuns = 2;
 for (let f_1 = 0; f_1 < pickups.length; f_1++) {
 	for (let s_1 = 0; s_1 < melds.length; s_1++) {
 		for (let t_1 = 0; t_1 < layoffs.length; t_1++) {
 			for (let fo_1 = 0; fo_1 < putdowns.length; fo_1++) {
 				let algoNum_1 = [f_1, s_1, t_1, fo_1];
 				// let algoNum_1 = [1,0,0,0];
-				let games = [];
+				// let games = [];
+				let games = new SimulationSummary();
 				for (let f_2 = 0; f_2 < pickups.length; f_2++) {
 					for (let s_2 = 0; s_2 < melds.length; s_2++) {
 						for (let t_2 = 0; t_2 < layoffs.length; t_2++) {
@@ -25,7 +27,8 @@ for (let f_1 = 0; f_1 < pickups.length; f_1++) {
 									console.log("skipping");
 									continue;
 								}
-								games.push(
+								games.addGameSummary(
+									algoNum_2.join(""),
 									runSimulation(
 										algoNum_1,
 										algoNum_2,
@@ -36,11 +39,9 @@ for (let f_1 = 0; f_1 < pickups.length; f_1++) {
 						}
 					}
 				}
-				let gamesString = games.join("\n");
-				console.log(gamesString);
 				fs.writeFileSync(
 					`export/${new Date()}-${algoNum_1.join("")}.rmy`,
-					gamesString
+					JSON.stringify(games)
 				);
 			}
 		}
@@ -52,7 +53,7 @@ function runSimulation(
 	algonum_2: number[],
 	iterations: number
 ) {
-	let gameStrings = [];
+	let summary = new GameSummary();
 	for (let i = 0; i < iterations; i++) {
 		let rummy = new Rummy();
 
@@ -109,7 +110,8 @@ function runSimulation(
 				secondautoalgo.putDown()
 			);
 		}
-		gameStrings.push(Utils.summariseGame(autoalgo, secondautoalgo, rummy));
+		// gameStrings.push(Utils.summariseGame(autoalgo, secondautoalgo, rummy));
+		Utils.summarise(summary, rummy);
 	}
-	return gameStrings;
+	return summary;
 }

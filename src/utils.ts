@@ -1,6 +1,8 @@
 import fs from "fs";
 import { Rummy } from "rummy-lib/lib";
+import { isFunctionDeclaration } from "typescript";
 import { AutoAlgo } from "./autoalgo";
+import { GameSummary } from "./summary";
 export class Utils {
 	static summariseGame(
 		autoAlgo_1: AutoAlgo,
@@ -28,5 +30,19 @@ WINNER: ${rummy.players.indexOf(
 		// 	string
 		// );
 		return string;
+	}
+
+	static summarise(summary: GameSummary, rummy: Rummy) {
+		summary.incrementGames();
+		let copy = rummy.players;
+		if (
+			rummy.players.indexOf(
+				copy.sort(
+					(a, b) => a.hand.cards.length - b.hand.cards.length
+				)[0]
+			) == 0
+		) {
+			summary.incrementWins();
+		}
 	}
 }
