@@ -110,7 +110,6 @@ function runSimulation(
 				secondautoalgo.putDown()
 			);
 		}
-		// gameStrings.push(Utils.summariseGame(autoalgo, secondautoalgo, rummy));
 		Utils.summarise(summary, rummy);
 	}
 	return summary;
