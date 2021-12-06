@@ -4,8 +4,9 @@ export function oldestCard(playerIndex: number, rummy: Rummy) {
 	let nonDiscard = rummy.players[playerIndex].hand.cards.findIndex(
 		(card, index) => card.isDiscard == false
 	);
-	console.log("nonDisc", nonDiscard);
-	console.log("hand", rummy.players[playerIndex].hand.cards);
+	// console.log("nonDisc", nonDiscard);
+	// console.log("hand", rummy.players[playerIndex].hand.cards);
+	// console.log(playerIndex)
 	return new PutdownMove(
 		rummy.players[playerIndex].hand,
 		rummy.board.discard,

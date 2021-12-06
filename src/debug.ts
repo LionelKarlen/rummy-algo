@@ -4,10 +4,10 @@ import { AutoAlgo } from "./autoalgo";
 let rummy = new Rummy();
 
 let algo = new Algo(rummy, 0);
-let autoalgo = new AutoAlgo(algo, [0, 0, 0, 0]);
+let autoalgo = new AutoAlgo(algo, [2, 0, 0, 0]);
 
 let secondalgo = new Algo(rummy, 1);
-let secondautoalgo = new AutoAlgo(secondalgo, [0, 0, 0, 0]);
+let secondautoalgo = new AutoAlgo(secondalgo, [2, 0, 0, 0]);
 
 while (!rummy.isGameOver) {
 	rummy.makeMove(rummy.players[autoalgo.algo.playerIndex], autoalgo.pickUp());

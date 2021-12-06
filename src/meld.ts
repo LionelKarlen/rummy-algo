@@ -11,7 +11,7 @@ export function minimumPossibleMeld(playerIndex: number, rummy: Rummy) {
 			ranked[i].suit == ranked[i + 2].suit
 		) {
 			let meld = new Book([ranked[i], ranked[i + 1], ranked[i + 2]]);
-			console.log("meldMove", meld);
+			// console.log("meldMove", meld);
 			return new MeldMove(
 				rummy.players[playerIndex].hand,
 				rummy.players[playerIndex].meldStack,
@@ -23,7 +23,7 @@ export function minimumPossibleMeld(playerIndex: number, rummy: Rummy) {
 			ranked[i + 1].rank + 1 == ranked[i + 2].rank
 		) {
 			let meld = new Run([ranked[i], ranked[i + 1], ranked[i + 2]]);
-			console.log("meldMove", meld);
+			// console.log("meldMove", meld);
 			return new MeldMove(
 				rummy.players[playerIndex].hand,
 				rummy.players[playerIndex].meldStack,

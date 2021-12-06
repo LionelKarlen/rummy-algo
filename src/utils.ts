@@ -24,7 +24,7 @@ WINNER: ${rummy.players.indexOf(
 			)[0]
 		)}
 ===============`;
-		console.log(string);
+		// console.log(string);
 		// fs.writeFileSync(
 		// 	`export/${date}-${algoString_1}-${algoString_2}.rmy`,
 		// 	string
@@ -36,11 +36,7 @@ WINNER: ${rummy.players.indexOf(
 		summary.incrementGames();
 		let copy = rummy.players;
 		if (
-			rummy.players.indexOf(
-				copy.sort(
-					(a, b) => a.hand.cards.length - b.hand.cards.length
-				)[0]
-			) == 0
+			rummy.players[0].hand.cards.length == 0
 		) {
 			summary.incrementWins();
 		}

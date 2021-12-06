@@ -13,6 +13,9 @@ export abstract class Summary {
 	incrementWins() {
 		this.wins += 1;
 	}
+	draw() {
+		this.wins+=0.5;
+	}
 }
 
 export class GameSummary extends Summary {
