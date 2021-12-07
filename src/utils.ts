@@ -1,5 +1,5 @@
 import fs from "fs";
-import { Rummy } from "rummy-lib/lib";
+import { Card, Rummy } from "rummy-lib/lib";
 import { isFunctionDeclaration } from "typescript";
 import { AutoAlgo } from "./autoalgo";
 import { GameSummary } from "./summary";
@@ -40,5 +40,32 @@ WINNER: ${rummy.players.indexOf(
 		) {
 			summary.incrementWins();
 		}
+	}
+
+	static calculateRegret(playedScore: number, mockScore: number) {
+		return Math.abs(mockScore-playedScore);
+	}
+
+	static getMeldRegret() {
+		let s = JSON.parse(fs.readFileSync("res/meld.json").toString()) as unknown as Record<string, number>;
+		return s
+	}
+
+	static getLayoffRegret() {
+		let s = JSON.parse(fs.readFileSync("res/layoff.json").toString()) as unknown as Record<string, number>;
+		return s
+	}
+	static getPutdownRegret() {
+		let s = JSON.parse(fs.readFileSync("res/putdown.json").toString()) as unknown as Record<string, number>;
+		return s
+	}
+
+	static uniqueID(cards: Card[]) {
+		let s ="";
+		for (const iterator of cards) {
+			s+=iterator.rank.toString()
+			s+="-"
+		}
+		return s.slice(0,s.length-1);
 	}
 }

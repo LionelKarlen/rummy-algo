@@ -2,4 +2,7 @@ node_modules
 *.lock
 lib
 *.rmy
+*.csv
+*.entry
+*.ods
 .vscode
